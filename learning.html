@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Learning</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/learning-style.css">
+</head>
+<body>
+    <div class="block-bg">
+        <img src="./img/block-bg.png" alt="">
+    </div>
+    <div class="blocks">
+        <div class="main-block">
+            <h1>Блоки обучения</h1>
+        </div>
+        <div class="chess">
+            <h4>арт</h4>
+        </div>
+        <div style="background-image: url(../img/1.png)"></div>
+        <div class="chess">
+            <h4>спорт</h4>
+        </div>
+        <div style="background-image: url(../img/2.png)"></div>
+        <div class="chess stem">
+            <h4>stem</h4>
+        </div>
+        <div style="background-color: #eefaf9"></div>
+        <div class="chess">
+            <h4>гуманитарный <br>блок</h4>
+        </div>
+        <div style="background-image: url(../img/3.png)"></div>
+        <div class="chess">
+            <h4>it</h4>
+        </div>
+        <div style="background-image: url(../img/4.png)"></div>
+        <div class="chess">
+            <h4>медиа</h4>
+        </div>
+        <div style="background-image: url(../img/5.png)"></div>
+        <div class="chess">
+            <h4>perfomance</h4>
+        </div>
+        <div style="background-image: url(../img/6.png)"></div>
+        <div class="chess">
+            <h4>полиглот</h4>
+        </div>
+        <div style="background-image: url(../img/7.png)"></div>
+        <div class="chess">
+            <h4>бизнес</h4>
+        </div>
+        <div style="background-image: url(../img/8.png)"></div>
+        <div class="chess">
+            <h4>социальная <br>ответственность</h4>
+        </div>
+    </div>
+    <div class="education">
+        <h1>65%</h1>
+        <p>сегодняшних учеников начальной школы будут работать в профессиях, которых еще не существует. Сейчас главная<br>задача родителя – дать своему ребенку такое образование, которое поможет адаптироваться к вызовам будущего.</p>
+    </div>
+    <div class="request">
+        <div class="info">
+            <h1>подать заявку</h1>
+            Заполните форму, чтобы записаться на консультацию – это первый шаг к зачислению в школу. Количество мест ограничено
+        </div>
+        <div class="form">
+            <form method="post" id="ajaxForm" action="send.php">
+                <div class="left-form-section">
+                    <p>Имя</p>
+                    <input type="text" name="name" size="42">
+                    <p>Телефон</p>
+                    <input type="tel" name="tel" size="42" id="">
+                    <p>E-mail</p>
+                    <input type="email" name="email" size="42">
+                </div>
+                <div class="right-form-section">
+                    <p>Сообщение</p>
+                    <textarea type="text" name="comment"></textarea>
+                    <button type="submit">ПОДАТЬ ЗАЯВКУ</button>
+                </div>  
+            </form>
+        </div>
+    </div>
+    <script>
+        function send(){
+            var form = new FormData(ajaxForm);
+            fetch("send.php", {
+                method: "POST",
+                body: form
+            }).then(function(response) {
+                console.log(response);
+                alert("Great job OK!")
+                ajaxForm.reset()
+            }).catch(function(error) { 
+                console.log(error);
+                alert("ERROR happend!!")
+            });
+        }
+        ajaxForm.addEventListener("submit", function(event){
+            event.preventDefault()
+            event.stopPropagation()
+            send()
+        });
+    </script>
+</body>
+</html>
